@@ -4,7 +4,7 @@ DEVICE_PATH = /dev/ttyUSB0
 FUSE = -U lfuse:w:0xe1:m -U hfuse:w:0x99:m -U efuse:w:0xfd:m 
 
 CFLAGS = -Wall -Os
-COMPILER = avr-gcc -mmcu=$(DEVICE) $(CFLAGS)
+COMPILER = avr-gcc -mmcu=$(DEVICE) $(CFLAGS) -DF_CPU=1000000UL
 AVRDUDE = avrdude -c $(PROGRAMMER) -p $(DEVICE) -P $(DEVICE_PATH)
 
 SOURCE_FILES = larson-scanner.c
